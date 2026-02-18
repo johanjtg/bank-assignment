@@ -24,8 +24,8 @@ This application provides APIs to:
 
 ### Locally (Maven)
 ```bash
-mvn clean install
-mvn spring-boot:run
+./mvnw clean install  
+ ./mvnw spring-boot:run
 ```
 The application will start on port `8080`.
 
