@@ -1,6 +1,7 @@
 package com.abnamro.assignment.service;
 
 import com.abnamro.assignment.api.model.ApplicationUpdateRequest;
+import com.abnamro.assignment.mapper.ApplicationMapper;
 import com.abnamro.assignment.model.AccountApplication;
 import com.abnamro.assignment.model.AccountType;
 import com.abnamro.assignment.model.ApplicationStatus;
@@ -29,7 +30,7 @@ class OnboardingServiceImplTest {
     @Mock
     private org.springframework.validation.SmartValidator validator;
 
-    private com.abnamro.assignment.mapper.ApplicationMapper mapper = new com.abnamro.assignment.mapper.ApplicationMapper();
+    private final ApplicationMapper mapper = new ApplicationMapper();
 
     private OnboardingServiceImpl service;
 
