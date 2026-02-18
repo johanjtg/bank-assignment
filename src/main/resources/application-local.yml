@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: bank-assignment-local
+  datasource:
+    url: jdbc:h2:mem:bankdb-local
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    url: /openapi.yaml
+
+logging:
+  level:
+    com.abnamro.assignment: DEBUG
+    org.springframework.web: DEBUG

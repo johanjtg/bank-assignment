@@ -1,0 +1,143 @@
+{
+    "info": {
+        "_postman_id": "b6a8d8e1-5f2a-4b9e-9c1a-2d3e4f5g6h7i",
+        "name": "Bank Assignment",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1. Start Application (Draft)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"name\": \"John Doe\",\n  \"address\": {\n    \"streetName\": \"Main St\",\n    \"houseNumber\": \"10\",\n    \"postCode\": \"1234 AB\",\n    \"city\": \"Amsterdam\"\n  },\n  \"dateOfBirth\": \"1988-10-12\",\n  \"idDocument\": \"AB123456\",\n  \"email\": \"johan.trujillo@example.com\",\n  \"accountType\": \"SAVINGS\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/applications",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "applications"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "2. Update Application (Valid)",
+            "request": {
+                "method": "PATCH",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"startingBalance\": 1500.00,\n  \"monthlySalary\": 3000.00,\n  \"interestedInOtherProducts\": true\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/applications/{{applicationId}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "applications",
+                        "{{applicationId}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "3. Update Application (Invalid)",
+            "request": {
+                "method": "PATCH",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"address\": {\n    \"postCode\": \"INVALID\"\n  },\n  \"email\": \"not-an-email\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/applications/{{applicationId}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "applications",
+                        "{{applicationId}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "4. Get Application",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/applications/{{applicationId}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "applications",
+                        "{{applicationId}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "5. Submit Application (Success)",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/applications/{{applicationId}}/submit",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "applications",
+                        "{{applicationId}}",
+                        "submit"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "applicationId",
+            "value": "REPLACE_WITH_UUID"
+        }
+    ]
+}
